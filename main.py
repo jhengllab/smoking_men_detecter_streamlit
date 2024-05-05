@@ -40,18 +40,6 @@ st.markdown('')
 # 將主頁分成兩欄
 col1, col2 = st.columns(2)
 
-# 圖片上傳後加到第一欄
-with col1:
-    st.write('##### 你上傳的圖片:')
-    if source_img:
-        # 顯示上傳的照片
-        uploaded_image = PIL.Image.open(source_img)
-        # Adding the uploaded image to the page with a caption
-        st.image(source_img,
-                 caption="Uploaded Image",
-                 use_column_width=True
-                 )
-
 
 # 設定側邊欄
 with st.sidebar:
@@ -67,6 +55,18 @@ with st.sidebar:
         "選擇信心水準", 25, 100, 50)) / 100
     
     st.caption('按下後開始')
+
+# 圖片上傳後加到第一欄
+with col1:
+    st.write('##### 你上傳的圖片:')
+    if source_img:
+        # 顯示上傳的照片
+        uploaded_image = PIL.Image.open(source_img)
+        # Adding the uploaded image to the page with a caption
+        st.image(source_img,
+                 caption="Uploaded Image",
+                 use_column_width=True
+                 )
 
 
 # 模型執行區塊
